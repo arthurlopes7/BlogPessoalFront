@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext"
 import Postagem from "../../../models/Postagem"
 import { buscar, deletar } from "../../../service/Service"
 import { RotatingLines } from "react-loader-spinner"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function DeletarPostagem() {
 
@@ -33,7 +34,7 @@ function DeletarPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            ToastAlerta('Você precisa estar logado', 'info')
             navigate('/')
         }
     }, [token])
@@ -54,13 +55,13 @@ function DeletarPostagem() {
                 }
             })
 
-            alert('Postagem apagada com sucesso')
+            ToastAlerta('Postagem apagada com sucesso', 'sucesso')
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout()
             }else {
-                alert('Erro ao deletar a postagem.')
+                ToastAlerta('Erro ao deletar a postagem.', 'erro')
             }
         }
 
@@ -73,14 +74,14 @@ function DeletarPostagem() {
     }
 
     return (
-        <div className='container w-1/3 mx-auto'>
+        <div className='mx-auto w-1/3 container'>
             <h1 className='text-4xl text-center my-4'>Deletar Postagem</h1>
 
-            <p className='text-center font-semibold mb-4'>
+            <p className='mb-4 font-semibold text-center'>
                 Você tem certeza de que deseja apagar a postagem a seguir?
             </p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
+            <div className='flex flex-col justify-between border rounded-2xl overflow-hidden'>
                 <header 
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
                     Postagem

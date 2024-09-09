@@ -7,10 +7,10 @@ import { RotatingLines } from 'react-loader-spinner';
 
 function Cadastro() {
 
-  // Hook useNavigate para redirecionar rotas
+
   const navigate = useNavigate();
 
-  // Estado que vai guardar os dados do meu usuário
+  
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
@@ -19,26 +19,26 @@ function Cadastro() {
     foto: ""
   })
 
-  // Estado que vai guarda a confirmação da senha
+  
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
 
-  // Estado que vai indicar quando a animação (loader) será carregada
+  
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // useEffect para monitorar o Estado usuario
+ 
   useEffect(() => {
     if (usuario.id !== 0){
       retornar()
     }
   }, [usuario])
 
-  // Redireciona para o Componente Login (rota /login)
+ 
 
   function retornar() {
     navigate('/login')
   }
 
-  // Função que atualiza as propriedades do Estado Usuário
+
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setUsuario({
       ...usuario,

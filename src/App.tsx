@@ -1,15 +1,21 @@
-// App.tsx
-import React from 'react';
-import Home from './pages/home/Home';
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home title="Seja Bem Vindo!" />
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+        <div className="min-h-[80vh]">
+          <Routes>
+            <Route path="/" element={<Home title="Home" />} />
+            <Route path="/home" element={<Home title="Home" />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

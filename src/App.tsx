@@ -12,18 +12,24 @@ import ListaPostagens from "./components/postagens/listapostagens/ListaPostagens
 import FormPostagem from "./components/postagens/formpostagens/FormPostagem"
 import DeletarPostagem from "./components/postagens/deletarpostagens/DeletarPostagem"
 import Perfil from "./pages/perfil/Perfil"
+
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
 
 function App() {
-  
+  // Código TypeScript
 
   return (
-    
+    // Código TSX => HTML + CSS
     <>
-      {}
+      {/* 
+          Envolvemos todos os Componentes inseridos no Componente App, 
+          com o Componente AuthProvider. 
+          Desta forma, todos os Componentes dentro dele, terão acesso 
+          aos Estados e Funções guardados na context.
+      */}
       <AuthProvider>
-      <ToastContainer />
+        <ToastContainer />
         <BrowserRouter>
           <Navbar />
           <div className="min-h-[80vh]">

@@ -11,7 +11,7 @@ function Home() {
                             Seja Bem Vindo!
                         </h2>
                         <p className='text-xl'>
-                            Publique sua opiniâo no Blog DEV Arthur!
+                            Deixe sua opiniâo no Blog DEV Arthur!
                         </p>
 
                         <div className="flex justify-around gap-4">

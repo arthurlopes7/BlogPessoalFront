@@ -7,18 +7,17 @@ import { RotatingLines } from 'react-loader-spinner';
 
 function Login() {
 
-
+   
     const navigate = useNavigate()
 
-  
     const { usuario, handleLogin, isLoading } = useContext(AuthContext)
 
-    
+   
     const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
         {} as UsuarioLogin
     )
 
-   
+    
     useEffect(() => {
         if(usuario.token !== ''){
             navigate("/home")
@@ -33,13 +32,12 @@ function Login() {
         })
     }
 
-   
+    
     function login(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
         handleLogin(usuarioLogin)
     }
 
-    
     console.log(JSON.stringify(usuarioLogin))
 
     return (
@@ -59,9 +57,9 @@ function Login() {
                             name="usuario"
                             placeholder="Usuario"
                             className="border-2 border-slate-700 rounded p-2"
-                            
+                           
                             value={usuarioLogin.usuario}
-                            
+                           
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
@@ -75,7 +73,7 @@ function Login() {
                             className="border-2 border-slate-700 rounded p-2"
                            
                             value={usuarioLogin.senha}
-                            
+                           
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
@@ -107,9 +105,7 @@ function Login() {
 
                     <p>
                         Ainda não tem uma conta?{' '}
-                        {
-                            
-                        }
+                        {}
                         <Link to='/cadastro' className="text-indigo-800 hover:underline">
                             Cadastre-se
                         </Link>
